@@ -85,11 +85,6 @@
   background-color: var(--second-bg-color);
 }
 
-.chat__llm-text {
-  width: 100%;
-  overflow-wrap: break-word;
-}
-
 .chat-footer {
   width: 100%;
   position: absolute;

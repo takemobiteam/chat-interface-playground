@@ -1,3 +1,6 @@
+import { Typography } from 'antd';
+const { Text, Paragraph } = Typography;
+
 const BASE_URL =
   'https://proxy.takemobi.io/mobility-planner/demo/v2/dialog/response?mode=MOBI_AGENT&session_id=';
 
@@ -96,9 +99,10 @@ function generateJSXFromData(data) {
               displayValue = value;
             }
             return (
-              <p key={key} className='chat__llm-text'>
-                <strong>{key.replace(/_/g, ' ')}:</strong> {displayValue}
-              </p>
+              <Paragraph key={key}>
+                <Text strong>{key.replace(/_/g, ' ')}:</Text>
+                <Text code>{displayValue}</Text>
+              </Paragraph>
             );
           })}
         </div>
