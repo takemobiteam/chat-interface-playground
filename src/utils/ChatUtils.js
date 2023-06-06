@@ -10,6 +10,7 @@ const STATUS_MAP = {
 
 /**
  * @summary filter out tags that are either <not supported> or <not preferences but locations>
+ *
  * <not supported>
  * TODO: a temporary solution for V1 since we are not supporting flights and stays in this version, thus, filter out all tags if the categories are 'ACCOMMODATION'
  * <not preferences but locations>
@@ -25,12 +26,23 @@ function excludeTags(tags, excludeKeys = ['ACCOMMODATION', 'GEOLOCATION']) {
   return tags.filter((tag) => !keySet.has(tag.category));
 }
 
+/**
+ * @summary parse raw LLM response from the backend
+ * @param {*} resArr
+ * @returns [{response}]
+ */
+
 function parseRawRes(resArr) {
   const excludeSet = new Set(['dialog_response', 'intent_response']);
   const filteredArr = resArr.filter((data) => !excludeSet.has(data.name));
   return filteredArr;
 }
 
+/**
+ * @summary format LLM response, since the response could be string, JSON, or a combination of string and JSON
+ * @param {*} rawRes
+ * @returns jsx
+ */
 function formatRawRes(rawRes) {
   let formattedRes = [];
   let start = 0,
@@ -60,6 +72,12 @@ function formatRawRes(rawRes) {
   return generateJSXFromData(formattedRes);
 }
 
+/**
+ * @summary helper function for formatRawRes
+ * @param {*} data
+ * @returns jsx
+ */
+
 function generateJSXFromData(data) {
   return data.map((item, index) => {
     if (item.message) {
@@ -78,7 +96,7 @@ function generateJSXFromData(data) {
               displayValue = value;
             }
             return (
-              <p key={key}>
+              <p key={key} className='chat__llm-text'>
                 <strong>{key.replace(/_/g, ' ')}:</strong> {displayValue}
               </p>
             );

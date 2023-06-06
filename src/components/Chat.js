@@ -65,6 +65,7 @@ function Chat({ rawRes, chatLog, onSendChatMsg, loading }) {
                 />
               );
             })}
+
             {!loading && (
               <Collapse ghost accordion>
                 {filteredLLMRes.map((res, idx) => (
