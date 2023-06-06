@@ -8,7 +8,7 @@ const STATUS_MAP = {
   selected_filters: { src: 'User', status: 'include' },
   recommended_filters: { src: 'System', status: 'include' },
   not_recommended_filters: { src: 'System', status: 'exclude' },
-  excluded_filters: { src: 'User', status: 'include' },
+  excluded_filters: { src: 'User', status: 'exclude' },
 };
 
 /**
