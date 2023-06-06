@@ -2,7 +2,7 @@
   "name": "demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://haileyshi617.github.io/mobi-playground/",
+  "homepage": "https://takemobiteam.github.io/chat-interface-playground/",
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
     "@testing-library/jest-dom": "^5.14.1",
